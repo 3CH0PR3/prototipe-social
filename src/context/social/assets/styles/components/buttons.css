@@ -1,0 +1,20 @@
+/* Buttons */
+.soc-btn-primary {
+  @apply inline-flex items-center justify-center px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-semibold text-xs md:text-sm text-white bg-green-800 hover:bg-green-700 transition-colors;
+}
+
+.soc-btn-secondary {
+  @apply inline-flex items-center justify-center px-2 py-1 md:px-3 md:py-1.5 rounded-lg font-semibold text-[10px] md:text-xs text-gray-600 bg-gray-100 hover:bg-gray-200 transition-colors;
+}
+
+.soc-btn-outline {
+  @apply inline-flex items-center justify-center px-2 py-1 md:px-3 md:py-1.5 rounded-lg font-semibold text-[10px] md:text-xs text-green-700 border border-green-600 hover:bg-green-50 transition-colors;
+}
+
+.soc-btn-icon {
+  @apply w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer;
+}
+
+.soc-btn-action {
+  @apply flex items-center gap-1.5 px-2 py-1.5 md:px-3 md:py-2 rounded-lg font-semibold text-xs md:text-sm cursor-pointer transition-colors border-0 bg-transparent hover:text-green-700 hover:bg-green-50;
+}

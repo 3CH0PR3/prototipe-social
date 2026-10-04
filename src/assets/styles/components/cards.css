@@ -1,0 +1,23 @@
+/*
+ * ── Cards ──────────────────────────────────────────────────────────
+ */
+
+@layer components {
+  .card {
+    /* @apply rounded-xl border border-slate-200/80 bg-white shadow-sm transition-all duration-200 hover:border-brand-600/30 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-800/60 dark:shadow-none dark:hover:border-brand-500/40; */
+    @apply rounded-md border border-slate-200/80 bg-white shadow-sm transition-all duration-200 dark:border-slate-700/20 dark:bg-[#0d1426] dark:shadow-none;
+  }
+
+  .card-lg {
+    /* @apply rounded-2xl border border-slate-200/80 bg-white shadow-card-lg transition-all duration-200 hover:border-brand-600/30 dark:border-slate-700/60 dark:bg-slate-800/60 dark:shadow-none dark:hover:border-brand-500/40; */
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-card-lg transition-all duration-200 hover:border-brand-600/30 dark:border-slate-700/60 dark:bg-slate-800/60 dark:shadow-none dark:hover:border-brand-500/40;
+  }
+
+  .glass-panel {
+    @apply rounded-xl border border-white/20 bg-white/60 backdrop-blur-md dark:border-white/5 dark:bg-slate-800/50;
+  }
+
+  .dashboard-card {
+    @apply rounded-xl border border-slate-200/80 bg-white shadow-sm dark:border-slate-700/60 dark:bg-slate-800/60;
+  }
+}

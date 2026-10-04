@@ -1,0 +1,38 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--color-brand) / 0.4) rgb(var(--color-bg-subtle));
+}
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-button {
+  display: none !important;
+  opacity: 0;
+}
+*::-webkit-scrollbar-track {
+  background: rgb(var(--color-bg-subtle));
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-brand) / 0.4);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-brand));
+}
+
+/* ── PerfectScrollbar ── */
+.ps__rail-x,
+.ps__rail-y {
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+.ps__thumb-x,
+.ps__thumb-y {
+  background-color: rgb(var(--color-brand) / 0.4) !important;
+  border-radius: 9999px !important;
+}
+.ps__rail-x:hover .ps__thumb-x,
+.ps__rail-y:hover .ps__thumb-y {
+  background-color: rgb(var(--color-brand)) !important;
+}

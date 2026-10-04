@@ -1,0 +1,44 @@
+/* Auth Layout */
+.soc-auth-layout {
+  @apply flex min-h-screen bg-background transition-colors duration-300;
+}
+
+.soc-auth-theme-toggle {
+  @apply absolute top-2 right-1 md:right-4 rounded-full z-50 p-2 text-text-secondary hover:bg-surface-alt transition-colors border-0 bg-transparent cursor-pointer;
+}
+
+.soc-auth-left-panel {
+  @apply flex w-full flex-col justify-start md:justify-center px-6 py-6 sm:px-12 lg:w-1/2 xl:w-5/12 bg-background relative z-10 transition-colors duration-300;
+}
+
+.soc-auth-container {
+  @apply mx-auto w-full max-w-md;
+}
+
+.soc-auth-right-panel {
+  @apply hidden lg:block relative flex-1;
+}
+
+.soc-auth-image {
+  @apply absolute inset-0 h-full w-full object-cover;
+}
+
+.soc-auth-gradient {
+  @apply absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent;
+}
+
+.soc-auth-hero {
+  @apply absolute bottom-0 left-0 p-16 xl:p-24 w-full;
+}
+
+.soc-auth-hero-title {
+  @apply text-5xl xl:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight;
+}
+
+.soc-auth-hero-subtitle {
+  @apply text-xl text-emerald-50 max-w-xl font-light leading-relaxed;
+}
+
+.soc-auth-hero-highlight {
+  @apply text-emerald-400;
+}

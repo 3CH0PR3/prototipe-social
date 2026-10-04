@@ -1,0 +1,72 @@
+.person-card {
+  @apply flex flex-row sm:flex-col items-center sm:items-stretch w-full sm:w-[200px] shrink-0 p-2 sm:p-1 gap-3 sm:gap-0 bg-white sm:bg-transparent rounded-xl sm:rounded-none;
+}
+
+.person-card-link {
+  @apply block cursor-pointer transition-opacity hover:opacity-90 shrink-0;
+}
+
+.person-card-image-wrapper {
+  @apply h-14 w-14 sm:h-32 sm:w-full bg-gray-100 relative rounded-full sm:rounded-t-xl sm:rounded-b-none flex items-center justify-center overflow-hidden;
+}
+
+.person-card-image {
+  @apply w-full h-full object-cover;
+}
+
+.person-card-info {
+  @apply p-0 sm:p-3 flex flex-col flex-grow text-left sm:text-center overflow-hidden w-full;
+}
+
+.person-card-name {
+  @apply text-sm sm:text-base font-bold text-gray-900 truncate hover:underline cursor-pointer;
+}
+
+.person-card-mutual {
+  @apply flex items-center justify-start sm:justify-center gap-1.5 mt-0.5 sm:mt-1 h-5 sm:h-6;
+}
+
+.person-card-mutual-images {
+  @apply flex -space-x-1 shrink-0;
+}
+
+.person-card-mutual-img {
+  @apply w-4 h-4 rounded-full border border-white;
+}
+
+.person-card-text {
+  @apply text-[11px] sm:text-xs text-gray-500 font-medium truncate;
+}
+
+.person-card-text-light {
+  @apply text-[11px] sm:text-xs text-gray-400 font-medium truncate;
+}
+
+.person-card-actions {
+  @apply mt-0 sm:mt-auto flex flex-row sm:flex-col gap-2 sm:space-y-2 pt-0 sm:pt-3 shrink-0;
+}
+
+.person-card-btn-secondary {
+  @apply w-auto sm:w-full bg-gray-100 text-gray-800 hover:bg-gray-200 font-semibold py-1 sm:py-1.5 px-3 sm:px-2 rounded-md text-xs sm:text-[13px] transition-colors truncate;
+}
+
+.person-card-btn-tertiary {
+  @apply w-auto sm:w-full bg-gray-200 !text-gray-800 hover:bg-gray-300 font-semibold py-1 sm:py-1.5 px-3 sm:px-2 rounded-md text-xs sm:text-[13px] transition-colors truncate;
+}
+
+/* Profile View */
+.profile-tabs-container {
+  @apply space-y-8;
+}
+
+.profile-section-header {
+  @apply flex justify-between items-center mb-2;
+}
+
+.profile-section-title {
+  @apply text-base font-medium text-gray-700;
+}
+
+.profile-cards-grid {
+  @apply flex flex-wrap gap-4;
+}

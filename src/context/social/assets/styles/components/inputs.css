@@ -1,0 +1,43 @@
+/* Inputs */
+.soc-input {
+  @apply w-full rounded-lg border border-border px-3 py-1.5 md:px-3.5 md:py-2 bg-surface text-text-primary text-[11px] md:text-sm placeholder:text-text-muted focus:bg-surface focus:ring-1 focus:ring-brand focus:border-brand transition-all outline-none dark:bg-surface-alt dark:border-white/10;
+}
+
+.soc-select {
+  @apply w-full rounded-lg border border-border px-3 py-1.5 md:px-3.5 md:py-2 bg-surface text-text-primary text-[11px] md:text-sm focus:ring-1 focus:ring-brand focus:border-brand transition-all outline-none appearance-none cursor-pointer dark:bg-surface-alt dark:border-white/10;
+}
+
+.soc-textarea {
+  @apply w-full rounded-lg border border-border px-3 py-1.5 md:px-3.5 md:py-2 bg-surface text-text-primary text-[11px] md:text-sm placeholder:text-text-muted focus:ring-1 focus:ring-brand focus:border-brand transition-all outline-none resize-none dark:bg-surface-alt dark:border-white/10;
+}
+
+.soc-label {
+  @apply block text-xs md:text-sm font-medium text-text-secondary mb-1;
+}
+
+.soc-form-group {
+  @apply flex flex-col gap-1;
+}
+
+.soc-form-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+}
+
+.soc-input-hint {
+  @apply text-xs text-text-muted mt-1;
+}
+
+.soc-input-error {
+  @apply text-xs text-red-500 mt-1;
+}
+
+/* Overrides for global forms in social context */
+.theme-social.dark .input-field,
+.dark .theme-social .input-field {
+  @apply bg-white/5 border-white/10 focus:border-white/30 !important;
+}
+
+.theme-social.dark .checkbox-field,
+.dark .theme-social .checkbox-field {
+  @apply bg-white/5 border-white/10 text-gray-600 focus:ring-white/30 !important;
+}

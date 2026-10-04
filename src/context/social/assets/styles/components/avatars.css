@@ -1,0 +1,16 @@
+/* Avatars */
+.soc-avatar-xs {
+  @apply w-8 h-8 rounded-full object-cover shrink-0;
+}
+
+.soc-avatar-sm {
+  @apply w-10 h-10 rounded-full object-cover shrink-0;
+}
+
+.soc-avatar-md {
+  @apply w-12 h-12 rounded-full object-cover shrink-0;
+}
+
+.soc-avatar-lg {
+  @apply w-14 h-14 rounded-full object-cover shrink-0;
+}

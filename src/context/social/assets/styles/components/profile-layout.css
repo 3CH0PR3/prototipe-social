@@ -1,0 +1,21 @@
+/* Profile Layout */
+.soc-profile-layout {
+  /* @apply min-h-screen bg-gray-50/50 pb-20 sm:pb-0; */
+  @apply bg-gray-50/50 pb-20 sm:pb-0;
+}
+
+.soc-profile-main {
+  @apply max-w-7xl mx-auto md:px-4 2xl:px-0;
+}
+
+.soc-profile-content-area {
+  @apply px-0 md:pt-4 md:pb-6;
+}
+
+.soc-profile-more-btn {
+  @apply p-2 ml-auto text-gray-500 transition rounded-lg hover:bg-gray-100 border-0 bg-transparent cursor-pointer;
+}
+
+.soc-profile-tab-content {
+  @apply pt-4;
+}

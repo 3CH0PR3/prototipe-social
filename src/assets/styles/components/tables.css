@@ -1,0 +1,250 @@
+/* =============================================
+   DataTable & TableFilters Component Styles
+   ============================================= */
+
+
+
+/* --- Table Container --- */
+.table-container {
+  @apply overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm;
+  @apply dark:border-slate-700/50 dark:bg-slate-900;
+}
+
+.table-wrapper {
+  @apply w-full;
+  /* No overflow-x-auto: el sistema responsive oculta columnas en lugar de scroll */
+}
+
+/* --- Table Base --- */
+.data-table {
+  @apply w-full text-left text-sm;
+  table-layout: fixed; /* Fuerza que respete widths y no desborde */
+}
+
+/* --- Table Header --- */
+.data-table thead {
+  @apply border-b border-slate-200 bg-slate-50;
+  @apply dark:border-slate-700/50 dark:bg-slate-800/40;
+}
+
+.data-table thead tr {
+  @apply text-center;
+}
+
+.data-table th {
+  @apply whitespace-nowrap px-4 py-3 text-xs font-semibold uppercase tracking-wider;
+  @apply text-slate-600 dark:text-slate-400;
+}
+
+/* --- Table Body --- */
+.data-table tbody {
+  @apply divide-y divide-slate-100 dark:divide-slate-700/40;
+}
+
+.data-table tbody tr {
+  @apply transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/30 text-center;
+}
+
+.data-table td {
+  @apply px-4 py-3 text-slate-700 dark:text-slate-300;
+}
+
+/* --- Expand Button --- */
+.expand-btn {
+  @apply flex h-6 w-6 items-center justify-center rounded-md border transition-all;
+}
+
+.expand-btn-inactive {
+  @apply border-slate-300 text-slate-400 hover:border-brand-400 hover:text-brand-500;
+  @apply dark:border-slate-700 dark:hover:border-brand-500;
+}
+
+.expand-btn-active {
+  @apply border-brand-500 bg-brand-500 text-white;
+}
+
+/* --- Expanded Row --- */
+.expanded-row {
+  @apply bg-slate-50/80 dark:bg-slate-800/20;
+}
+
+.expanded-row-content {
+  @apply grid gap-2 sm:grid-cols-2 lg:grid-cols-3;
+}
+
+.expanded-row-item {
+  @apply rounded-md border border-slate-200 bg-white px-3 py-2;
+  @apply dark:border-slate-700/50 dark:bg-slate-900;
+}
+
+.expanded-row-label {
+  @apply mb-1 text-xs font-medium text-slate-500 dark:text-slate-400;
+}
+
+.expanded-row-value {
+  @apply text-sm text-slate-700 dark:text-slate-300;
+}
+
+/* --- Action Buttons --- */
+.action-buttons {
+  @apply flex items-center justify-center gap-1.5;
+}
+
+.action-btn {
+  @apply rounded-md p-1.5 transition-colors;
+}
+
+.action-btn-view {
+  @apply text-brand-600 hover:bg-brand-50;
+  @apply dark:text-brand-400 dark:hover:bg-brand-950/50;
+}
+
+.action-btn-edit {
+  @apply text-amber-600 hover:bg-amber-50;
+  @apply dark:text-amber-400 dark:hover:bg-amber-950/50;
+}
+
+.action-btn-delete {
+  @apply text-rose-600 hover:bg-rose-50;
+  @apply dark:text-rose-400 dark:hover:bg-rose-950/50;
+}
+
+/* --- Loading State --- */
+.table-loading {
+  @apply py-0 text-center;
+}
+
+.table-loading-inner {
+  @apply flex items-center justify-center gap-3 py-12;
+}
+
+.table-loading-spinner {
+  @apply h-6 w-6 animate-spin rounded-full border-[3px] border-brand-500 border-t-transparent;
+}
+
+.table-loading-text {
+  @apply text-sm text-slate-500;
+}
+
+/* --- Empty State --- */
+.table-empty {
+  @apply py-12 text-center text-sm text-slate-500 dark:text-slate-400;
+}
+
+/* --- Pagination --- */
+.pagination-container {
+  @apply flex flex-col items-center justify-between gap-3 text-sm sm:flex-row;
+}
+
+.pagination-info {
+  @apply text-slate-600 dark:text-slate-400;
+}
+
+.pagination-buttons {
+  @apply flex items-center gap-1;
+}
+
+.pagination-btn {
+  @apply flex h-8 items-center justify-center rounded-md border transition-colors;
+  @apply disabled:opacity-40;
+}
+
+.pagination-btn-inactive {
+  @apply border-slate-200 text-slate-700 hover:bg-slate-100;
+  @apply dark:border-slate-700/60 dark:text-slate-300 dark:hover:bg-slate-800/50;
+}
+
+.pagination-btn-disabled {
+  @apply border-slate-200 text-slate-400 dark:border-slate-700/40;
+}
+
+.pagination-btn-page {
+  @apply min-w-[2rem] px-2;
+}
+
+.pagination-btn-active {
+  @apply border-brand-500 bg-brand-500 text-white;
+}
+
+.pagination-btn-nav {
+  @apply w-8;
+}
+
+.pagination-ellipsis {
+  @apply px-1 text-slate-400;
+}
+
+/* --- Filter Buttons --- */
+.filter-clear-btn {
+  @apply w-fit rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-600 transition-colors;
+  @apply hover:border-rose-400 hover:bg-rose-50 hover:text-rose-600;
+  @apply dark:border-slate-700 dark:text-slate-400;
+  @apply dark:hover:border-rose-600 dark:hover:bg-rose-950/30 dark:hover:text-rose-400;
+  @apply sm:w-auto;
+}
+
+/* --- Badge Styles (for roles, status) --- */
+.badge {
+  @apply inline-flex items-center rounded px-2.5 py-0.5 text-xs font-medium;
+}
+
+.badge-superadmin {
+  @apply bg-rose-100 text-rose-700 dark:bg-rose-950/30 dark:text-rose-400;
+}
+
+.badge-admin {
+  @apply bg-amber-100 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400;
+}
+
+.badge-operator {
+  @apply bg-brand-100 text-brand-700 dark:bg-brand-950/30 dark:text-brand-400;
+}
+
+.badge-guest {
+  @apply bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400;
+}
+
+.badge-status-active {
+  @apply bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400;
+}
+
+.badge-status-inactive {
+  @apply bg-rose-100 text-rose-700 dark:bg-rose-950/50 dark:text-rose-400;
+}
+
+.badge-status-dot {
+  @apply mr-1.5 h-1.5 w-1.5 rounded-full;
+}
+
+.badge-status-dot-active {
+  @apply bg-emerald-600;
+}
+
+.badge-status-dot-inactive {
+  @apply bg-rose-600;
+}
+
+/* --- Avatar --- */
+.user-avatar {
+  @apply h-9 w-9 shrink-0 rounded-full object-cover;
+}
+
+.avatar-placeholder {
+  @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-500/15 text-brand-500 dark:bg-brand-500/50 dark:text-brand-50 text-sm font-bold;
+}
+
+/* --- Responsive Utilities --- */
+@media (max-width: 640px) {
+  .data-table th,
+  .data-table td {
+    @apply px-2 py-2;
+  }
+
+  .action-buttons {
+    @apply gap-1;
+  }
+
+  .action-btn {
+    @apply p-1;
+  }
+}

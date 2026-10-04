@@ -1,0 +1,31 @@
+.soc-modal-overlay {
+  @apply fixed inset-0 z-[1000] flex items-center justify-center overflow-y-auto bg-black/10 backdrop-blur-md p-2 md:p-4 sm:p-5;
+}
+
+.soc-modal-container {
+  @apply relative flex flex-col w-full bg-surface border border-border rounded-xl shadow dark:bg-surface-alt dark:border-white/10;
+}
+
+.soc-modal-header {
+  @apply relative flex items-center justify-center px-3 py-3 md:px-4 md:py-4 border-b border-border shrink-0 dark:border-white/10;
+}
+
+.soc-modal-title {
+  @apply m-0 text-[#1f5129] text-[14px] md:text-[16px] font-extrabold text-center dark:text-white;
+}
+
+.soc-modal-close-btn {
+  @apply absolute right-3 md:right-4 grid place-items-center w-6 h-6 md:w-7 md:h-7 rounded-full bg-gray-200 text-gray-500 cursor-pointer hover:bg-green-950/50 hover:text-white transition-colors dark:bg-white/10 dark:text-white/70 dark:hover:bg-white/20;
+}
+
+.soc-modal-body {
+  @apply p-0 overflow-y-auto;
+}
+
+.soc-modal-body-padded {
+  @apply px-3 py-3 md:px-5 md:py-4 overflow-y-auto;
+}
+
+.soc-modal-footer {
+  @apply px-3 py-2 md:px-5 md:py-1 border-t border-border shrink-0 dark:border-white/10;
+}

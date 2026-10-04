@@ -1,0 +1,141 @@
+.driver-overlay {
+  @apply backdrop-blur-lg;
+  background: transparent !important;
+}
+
+[id^="tour-card-"].driver-active-element {
+  position: relative !important;
+  z-index: 99999 !important;
+}
+
+.driver-overlay path {
+  @apply fill-slate-900/30 dark:fill-slate-950/70 !important;
+}
+
+.driver-active-element-parent > {
+
+}
+
+.driver-overlay {
+  @apply backdrop-blur-lg;
+  background: transparent !important;
+}
+
+[id^="tour-card-"].driver-active-element {
+  position: relative !important;
+  z-index: 99999 !important;
+}
+
+.driver-overlay path {
+  @apply fill-slate-900/30 dark:fill-slate-950/70 !important;
+}
+
+.driver-active-element-parent > {
+
+}
+
+/*
+  Contenedor principal del Popover (Más compacto y profesional)
+*/
+.geca-driver-popover {
+  @apply bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700/20 shadow-xl rounded-lg text-slate-900 dark:text-white !important;
+  max-width: 320px !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .geca-driver-popover {
+    max-width: calc(100vw - 32px) !important;
+    width: 290px !important;
+  }
+}
+
+/* Flecha del popover: Restaurada y coloreada según el tema */
+.geca-driver-popover .driver-popover-arrow {
+  display: block !important;
+}
+
+.geca-driver-popover .driver-popover-arrow-side-left {
+  border-left-color: #ffffff !important;
+}
+
+.dark .geca-driver-popover .driver-popover-arrow-side-left {
+  border-left-color: #0f172a !important;
+}
+
+.geca-driver-popover .driver-popover-arrow-side-right {
+  border-right-color: #ffffff !important;
+}
+
+.dark .geca-driver-popover .driver-popover-arrow-side-right {
+  border-right-color: #0f172a !important;
+}
+
+.geca-driver-popover .driver-popover-arrow-side-top {
+  border-top-color: #ffffff !important;
+}
+
+.dark .geca-driver-popover .driver-popover-arrow-side-top {
+  border-top-color: #0f172a !important;
+}
+
+.geca-driver-popover .driver-popover-arrow-side-bottom {
+  border-bottom-color: #ffffff !important;
+}
+
+.dark .geca-driver-popover .driver-popover-arrow-side-bottom {
+  border-bottom-color: #0f172a !important;
+}
+
+/* Título */
+.geca-driver-popover .driver-popover-title {
+  @apply text-base font-bold text-slate-900 dark:text-white px-4 pt-4 pb-1 block !important;
+  font-family: inherit !important;
+}
+
+/* Descripción */
+.geca-driver-popover .driver-popover-description {
+  @apply text-xs text-slate-600 dark:text-slate-400 leading-relaxed px-4 pb-1 block !important;
+  font-family: inherit !important;
+}
+
+.geca-driver-popover .driver-popover-description strong {
+  @apply font-semibold text-brand-600 dark:text-brand-400 !important;
+}
+
+/* Footer (botones y progreso) */
+.geca-driver-popover .driver-popover-footer {
+  @apply flex items-center justify-between border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 rounded-b-lg px-4 py-2.5 mt-2 !important;
+}
+
+/* Progreso */
+.geca-driver-popover .driver-popover-progress-text {
+  @apply text-[11px] font-medium text-slate-400 dark:text-slate-500 !important;
+}
+
+/* Resetear botones base de driver */
+.geca-driver-popover button {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Botón de Cancelar / Omitir */
+.geca-driver-popover .driver-popover-close-btn {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  width: auto !important;
+  height: auto !important;
+  @apply text-xs font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition mr-auto underline underline-offset-2 px-1 !important;
+}
+
+/* Botón Anterior */
+.geca-driver-popover .driver-popover-prev-btn {
+  @apply inline-flex items-center justify-center gap-1 rounded border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 !important;
+}
+
+/* Botones Siguiente / Entendido */
+.geca-driver-popover .driver-popover-next-btn {
+  @apply inline-flex items-center justify-center gap-1 rounded bg-brand-500 dark:bg-brand-500/50 dark:text-brand-50 px-2.5 py-1.5 text-xs font-medium text-white transition disabled:cursor-not-allowed disabled:opacity-50 hover:bg-brand-600 dark:hover:bg-brand-500/70 !important;
+}

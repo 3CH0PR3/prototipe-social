@@ -1,0 +1,28 @@
+@layer base {
+  html,
+  body {
+    @apply h-full min-h-screen scroll-smooth antialiased text-base font-sans bg-base-light;
+  }
+
+  html.dark,
+  html.dark body {
+    @apply bg-base-dark;
+  }
+}
+
+/* ── Skin: Bordered ── */
+.bordered .table-container,
+.bordered .data-table thead,
+.bordered .rounded-xl,
+.bordered .rounded-lg,
+.bordered .rounded-md {
+  box-shadow: none !important;
+}
+
+.bordered .table-container,
+.bordered .rounded-xl,
+.bordered .rounded-lg {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(var(--color-brand) / 0.25);
+}

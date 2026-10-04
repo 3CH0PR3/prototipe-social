@@ -1,0 +1,137 @@
+/* Auth Forms & Views */
+.soc-auth-wrapper {
+  @apply w-full;
+}
+
+.soc-auth-header {
+  @apply mb-6 md:mb-8 text-center md:text-left;
+}
+
+.soc-auth-title {
+  @apply text-lg min-[350px]:text-xl md:text-2xl font-bold tracking-tight text-text-primary;
+}
+
+.soc-auth-subtitle {
+  @apply text-[11px] min-[350px]:text-xs md:text-sm text-text-secondary mt-1;
+}
+
+/* Auth Error Alert */
+.soc-auth-alert {
+  @apply mb-5 md:mb-6 rounded-md bg-red-50 p-3 md:p-4 border border-red-100 dark:bg-red-900/20 dark:border-red-900/50;
+}
+.soc-auth-alert-inner {
+  @apply flex items-start md:items-center text-left;
+}
+.soc-auth-alert-icon-wrapper {
+  @apply flex-shrink-0 mt-0.5 md:mt-0;
+}
+.soc-auth-alert-icon {
+  @apply h-4 w-4 md:h-5 md:w-5 text-red-500;
+}
+.soc-auth-alert-content {
+  @apply ml-2 md:ml-3;
+}
+.soc-auth-alert-text {
+  @apply text-[11px] min-[350px]:text-xs md:text-sm text-red-800 dark:text-red-200;
+}
+
+/* Auth Divider */
+.soc-auth-divider {
+  @apply mt-5 mb-4 md:mt-6 md:mb-4 relative;
+}
+.soc-auth-divider-line {
+  @apply absolute inset-0 flex items-center;
+}
+.soc-auth-divider-line-inner {
+  @apply w-full border-t border-border dark:border-border/10;
+}
+.soc-auth-divider-text-wrapper {
+  @apply relative flex justify-center text-[11px] min-[350px]:text-xs md:text-sm;
+}
+.soc-auth-divider-text {
+  @apply bg-background px-4 text-text-muted;
+}
+
+/* Auth Form */
+.soc-auth-form {
+  @apply space-y-3 md:space-y-4;
+}
+
+.soc-auth-btn-submit {
+  @apply w-full mt-3 md:mt-4 py-2 md:py-2.5 text-[11px] min-[350px]:text-xs md:text-sm;
+}
+
+.soc-auth-footer-split {
+  @apply mt-5 md:mt-6 flex flex-col md:flex-row items-center justify-between text-[11px] md:text-sm space-y-3 md:space-y-0;
+}
+.soc-auth-footer-center {
+  @apply mt-5 md:mt-6 text-center text-[11px] md:text-sm mb-4;
+}
+
+.soc-auth-link-text {
+  @apply text-text-secondary;
+}
+
+.soc-auth-link {
+  @apply font-semibold text-text-primary hover:underline transition-all;
+}
+
+.soc-auth-providers {
+  @apply mb-5 md:mb-6 space-y-2.5 md:space-y-3;
+}
+
+/* Social Provider Button */
+.soc-auth-provider-btn {
+  @apply flex w-full items-center justify-center gap-2 rounded-md border border-border dark:border-border/10 bg-surface-alt px-3 py-2 md:px-4 md:py-2.5 text-[11px] min-[350px]:text-xs md:text-sm font-medium text-text-primary hover:bg-surface transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1 focus:ring-offset-background;
+}
+.soc-auth-provider-btn-disabled {
+  @apply pointer-events-none opacity-50;
+}
+.soc-auth-provider-icon {
+  @apply h-3.5 w-3.5 md:h-4 md:w-4 group-hover:scale-125 transition-transform duration-300;
+}
+.soc-auth-provider-loader {
+  @apply h-3.5 w-3.5 md:h-4 md:w-4 animate-spin;
+}
+
+.soc-auth-grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4;
+}
+.soc-auth-checkbox-group {
+  @apply flex items-start md:items-center mt-2;
+}
+.soc-auth-checkbox-wrapper {
+  @apply flex items-center h-5 md:h-auto;
+}
+.soc-auth-checkbox-label {
+  @apply ml-2 block text-[11px] min-[350px]:text-xs md:text-sm text-text-secondary cursor-pointer leading-tight md:leading-normal;
+}
+.soc-auth-otp-icon-container {
+  @apply mb-6 flex justify-center;
+}
+.soc-auth-otp-icon-wrapper {
+  @apply flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 dark:border-green-900/50 dark:bg-green-950/20;
+}
+.soc-auth-otp-icon {
+  @apply h-7 w-7 text-text-secondary;
+}
+.soc-auth-otp-header {
+  @apply mb-10 text-center;
+}
+.soc-auth-otp-subtitle {
+  @apply mt-2 text-sm text-text-secondary max-w-sm mx-auto;
+}
+.soc-auth-otp-loading {
+  @apply mt-4 flex justify-center items-center gap-2 text-sm text-brand;
+}
+.soc-auth-otp-footer {
+  @apply mt-8 flex justify-center items-center gap-5;
+}
+.soc-auth-otp-back {
+  @apply text-sm font-medium text-text-secondary hover:text-text-primary transition-colors inline-flex items-center gap-1 focus:outline-none border-0 bg-transparent cursor-pointer;
+}
+.soc-auth-otp-resend {
+  @apply text-sm text-green-700 font-medium transition-colors focus:outline-none border-0 bg-transparent cursor-pointer;
+}
+
+

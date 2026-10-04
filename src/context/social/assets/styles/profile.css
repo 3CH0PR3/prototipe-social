@@ -1,0 +1,96 @@
+.soc-profile-cover-wrap {
+  @apply relative bg-white border-b border-gray-100 pb-3;
+}
+
+.soc-profile-cover {
+  @apply h-32 sm:h-48 bg-gray-200 relative;
+}
+
+.soc-profile-cover-btn {
+  @apply absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-white/90 backdrop-blur-sm rounded-lg shadow-sm hover:bg-white transition;
+}
+
+.soc-profile-header {
+  @apply px-4 sm:px-6 md:px-8;
+}
+
+.soc-profile-header-inner {
+  @apply flex flex-col sm:flex-row sm:items-end justify-between -mt-12 sm:-mt-16 relative z-10 gap-4;
+}
+
+.soc-profile-info {
+  @apply flex flex-col sm:flex-row sm:items-end md:gap-4;
+}
+
+.soc-profile-avatar {
+  @apply w-24 h-24 sm:w-32 sm:h-32 object-cover bg-green-600 border-4 border-white rounded-full bg-white shadow-md;
+}
+
+.soc-profile-text-wrap {
+  @apply mt-2 sm:mt-0 sm:mb-2;
+}
+
+.soc-profile-name {
+  @apply text-lg md:text-xl font-bold text-gray-900 flex items-center gap-2;
+}
+
+.soc-profile-badge {
+  @apply px-2 py-0.5 text-[10px] md:text-xs font-medium text-green-700 bg-green-50 rounded-full border border-green-100;
+}
+
+.soc-profile-actions {
+  @apply flex items-center gap-2 sm:mb-2;
+}
+
+.soc-btn-profile-primary {
+  @apply flex items-center justify-center gap-2 p-2.5 md:px-4 md:py-2 text-xs md:text-sm font-medium text-white transition bg-green-600 rounded-xl hover:bg-green-700 shadow-sm shadow-green-200 border-0 cursor-pointer;
+}
+
+.soc-btn-profile-secondary {
+  @apply flex items-center justify-center gap-2 p-2.5 md:px-4 md:py-2 text-xs md:text-sm font-medium transition rounded-xl shadow-sm bg-gray-100 text-gray-700 hover:bg-gray-200 border-0 cursor-pointer;
+}
+
+.soc-btn-profile-icon {
+  @apply p-2.5 md:p-2 text-gray-700 transition bg-gray-100 rounded-xl hover:bg-gray-200 border-0 cursor-pointer;
+}
+
+.soc-profile-bio {
+  @apply text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed;
+}
+
+/* Profile Tabs */
+.soc-profile-tabs-nav {
+  @apply flex justify-evenly md:justify-start items-center overflow-x-auto bg-white border-t-0 border-b border-gray-100 border-t md:px-4 xl:px-0 rounded-b-xl;
+}
+.soc-profile-tabs-nav::-webkit-scrollbar {
+  display: none;
+}
+.soc-profile-tabs-nav {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.soc-profile-tab {
+  @apply px-3 py-2 sm:py-3 text-sm font-medium transition whitespace-nowrap border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50;
+}
+
+.soc-profile-tab.active {
+  @apply border-green-600 text-green-600;
+}
+
+/* Profile Composer */
+.soc-profile-composer {
+  @apply flex items-center gap-3 p-3 sm:p-4 bg-white border border-gray-100 shadow-sm rounded-2xl cursor-pointer transition-shadow hover:shadow-md;
+}
+
+.soc-profile-composer-avatar {
+  @apply w-10 h-10 rounded-full object-cover bg-gray-100 ring-2 ring-gray-50;
+}
+
+.soc-profile-composer-input {
+  @apply flex-1 px-4 py-2.5 text-sm text-gray-500 bg-gray-50 hover:bg-gray-100 transition-colors border border-gray-200 rounded-full;
+}
+
+.soc-profile-composer-action {
+  @apply flex flex-col items-center justify-center gap-1 p-2 text-green-600 hover:bg-green-50 rounded-xl transition-colors;
+}

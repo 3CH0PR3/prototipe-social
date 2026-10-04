@@ -1,0 +1,289 @@
+.soc-feed-view {
+  @apply h-full overflow-y-auto md:px-4 space-y-2 md:space-y-4;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.soc-feed-view::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.soc-feed-skeleton {
+  @apply bg-white rounded-[12px] shadow-sm mb-4 p-4 animate-pulse;
+}
+
+.soc-feed-skeleton__header {
+  @apply flex items-center gap-3 mb-4;
+}
+
+.soc-feed-skeleton__avatar {
+  @apply w-10 h-10 rounded-full bg-gray-200;
+}
+
+.soc-feed-skeleton__title {
+  @apply w-32 h-4 bg-gray-200 rounded mb-2;
+}
+
+.soc-feed-skeleton__subtitle {
+  @apply w-20 h-3 bg-gray-200 rounded;
+}
+
+.soc-feed-skeleton__text {
+  @apply w-full h-4 bg-gray-200 rounded mb-2;
+}
+
+.soc-feed-skeleton__text-short {
+  @apply w-3/4 h-4 bg-gray-200 rounded mb-4;
+}
+
+.soc-feed-skeleton__image {
+  @apply w-full h-64 bg-gray-200 rounded-lg;
+}
+
+/* Feed loader dots */
+.soc-feed-loader {
+  @apply h-10 flex items-center justify-center;
+}
+
+.soc-feed-loader__container {
+  @apply flex gap-1 items-center;
+}
+
+.soc-feed-loader__dot {
+  @apply w-2 h-2 rounded-full bg-gray-400 animate-bounce;
+}
+
+/* Mention Input */
+.soc-mention-container {
+  @apply flex items-center gap-2 mt-2.5 w-full relative;
+}
+
+.soc-mention-avatar-wrapper {
+  @apply relative shrink-0 cursor-pointer hover:opacity-80 transition-opacity;
+}
+
+.soc-mention-input-group {
+  @apply flex items-center bg-gray-100 rounded px-2 md:px-3 py-1 md:py-1.5 w-full;
+}
+
+.soc-mention-input-field {
+  @apply bg-transparent border-0 outline-none w-full text-xs md:text-sm text-gray-900 placeholder-gray-500 focus:ring-0 focus:outline-none p-1 mr-2;
+}
+
+.soc-mention-dropdown {
+  @apply absolute bottom-full left-0 mb-2 w-full bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-10;
+}
+
+.soc-mention-dropdown-item {
+  @apply w-full flex items-center gap-2 md:gap-3 p-2 md:p-3 hover:bg-gray-50 transition-colors text-left;
+}
+
+.soc-mention-btn {
+  @apply border-0 bg-transparent p-1 cursor-pointer transition-colors text-gray-500 hover:text-brand;
+}
+
+.soc-mention-send-btn {
+  @apply border-0 bg-transparent p-1 cursor-pointer transition-colors disabled:text-gray-300 text-brand;
+}
+
+/* â”€â”€ Post body: URLs clicleables â€” una línea, dominio limpio â”€â”€ */
+.soc-post-body a {
+  @apply inline-flex items-center gap-1 max-w-full text-emerald-600 dark:text-emerald-400
+         font-medium text-sm hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.soc-post-body a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* â”€â”€ Lightbox â”€â”€ */
+.soc-lightbox-backdrop {
+  @apply fixed inset-0 z-[1000] flex items-center justify-center bg-black/85;
+}
+
+.soc-lightbox-close {
+  @apply absolute top-4 right-4 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white border-0 cursor-pointer transition-colors;
+}
+
+.soc-lightbox-container {
+  @apply flex w-full h-full max-w-6xl max-h-[92vh] rounded-xl overflow-hidden shadow-2xl bg-white dark:bg-gray-900;
+}
+
+.soc-lightbox-media {
+  @apply flex-1 bg-black flex items-center justify-center overflow-hidden min-w-0;
+}
+
+.soc-lightbox-image {
+  @apply w-full h-full object-contain max-h-[92vh];
+}
+
+.soc-lightbox-no-image {
+  @apply text-gray-500 text-sm;
+}
+
+.soc-lightbox-panel {
+  @apply flex flex-col w-[360px] shrink-0 border-l border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900;
+}
+
+.soc-lightbox-panel-header {
+  @apply px-4 pt-4 pb-3 border-b border-gray-100 dark:border-gray-800 shrink-0;
+}
+
+.soc-lightbox-author {
+  @apply flex items-center gap-3;
+}
+
+.soc-lightbox-author-info {
+  @apply flex flex-col;
+}
+
+.soc-lightbox-author-name {
+  @apply text-xs md:text-sm font-semibold text-gray-900 dark:text-white leading-tight;
+}
+
+.soc-lightbox-author-meta {
+  @apply flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mt-0.5;
+}
+
+.soc-lightbox-body {
+  @apply px-4 py-3 text-xs md:text-sm text-gray-800 dark:text-gray-200 leading-relaxed whitespace-pre-wrap break-words shrink-0 border-b border-gray-100 dark:border-gray-800 max-h-36 overflow-y-auto;
+}
+
+.soc-lightbox-stats {
+  @apply flex items-center gap-3 px-4 py-2.5 border-b border-gray-100 dark:border-gray-800 shrink-0;
+}
+
+.soc-lightbox-action-btn {
+  @apply flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-300 border-0 bg-transparent cursor-pointer px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors;
+}
+
+.soc-lightbox-action-btn--active {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+.soc-lightbox-stat-info {
+  @apply flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 ml-auto;
+}
+
+.soc-lightbox-comments {
+  @apply flex-1 overflow-y-auto px-3 py-2;
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb transparent;
+}
+
+.soc-lightbox-loading {
+  @apply flex items-center justify-center py-8;
+}
+
+.soc-lightbox-spinner {
+  @apply w-6 h-6 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin;
+}
+
+.soc-lightbox-empty-comments {
+  @apply flex flex-col items-center justify-center gap-2 py-10 text-center;
+}
+
+.soc-lightbox-empty-text {
+  @apply text-xs text-gray-500 dark:text-gray-400 m-0;
+}
+
+.soc-lightbox-footer {
+  @apply px-3 pb-3 pt-2 border-t border-gray-100 dark:border-gray-800 shrink-0;
+}
+
+/* Lightbox transitions */
+.soc-lightbox-enter-active,
+.soc-lightbox-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.soc-lightbox-enter-from,
+.soc-lightbox-leave-to {
+  opacity: 0;
+}
+
+
+.soc-lightbox-enter-to,
+.soc-lightbox-leave-from {
+  opacity: 1;
+}
+
+/* â”€â”€ Report Modal â”€â”€ */
+.soc-report-modal {
+    @apply px-3 md:px-4 py-2 md:py-3 flex flex-col gap-2 md:gap-3;
+  }
+
+.soc-report-intro {
+  @apply text-xs md:text-sm text-gray-600 dark:text-gray-400 m-0;
+}
+
+.soc-report-reasons {
+  @apply flex flex-col gap-1 md:gap-2 border-0 p-0 m-0;
+}
+
+.soc-report-reason {
+    @apply flex items-start gap-2 md:gap-3 px-2 md:px-3 py-1.5 md:py-2 rounded-lg border border-gray-200 dark:border-gray-700
+           cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors;
+  }
+
+.soc-report-reason--selected {
+  @apply border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30;
+}
+
+.soc-report-radio {
+  @apply mt-0.5 accent-emerald-600 shrink-0 transform scale-75 md:scale-100;
+}
+
+.soc-report-reason-content {
+  @apply flex flex-col gap-0 md:gap-0.5;
+}
+
+.soc-report-reason-label {
+  @apply text-[11px] md:text-xs md:text-sm font-semibold text-gray-900 dark:text-white leading-tight;
+}
+
+.soc-report-reason-desc {
+  @apply text-[9px] md:text-xs text-gray-500 dark:text-gray-400 leading-snug;
+}
+
+.soc-report-details {
+  @apply flex flex-col gap-1 md:gap-1.5;
+}
+
+.soc-report-details-label {
+  @apply text-[11px] md:text-sm font-semibold text-gray-700 dark:text-gray-300;
+}
+
+.soc-report-textarea {
+  @apply w-full rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800
+         text-xs md:text-sm text-gray-900 dark:text-white placeholder-gray-400 p-2 md:p-3
+         focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent
+         resize-none transition-colors;
+}
+
+.soc-report-char-count {
+  @apply text-[9px] md:text-xs text-gray-400 text-right;
+}
+
+.soc-report-footer {
+  @apply flex items-center justify-end gap-2 md:gap-3 px-3 md:px-5 py-2 md:py-3;
+}
+
+.soc-report-btn-cancel {
+  @apply px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-300
+         bg-transparent border border-gray-200 dark:border-gray-700
+         hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer transition-colors;
+}
+
+.soc-report-btn-submit {
+  @apply flex items-center gap-1 md:gap-1.5 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-semibold text-white
+         bg-rose-600 hover:bg-rose-700 cursor-pointer transition-colors border-0
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+

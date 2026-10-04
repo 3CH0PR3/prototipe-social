@@ -1,0 +1,16 @@
+/* Cards */
+.soc-card {
+  @apply rounded md:rounded-xl border border-gray-500/10 bg-white md:shadow-[0_1px_2px_rgba(0,0,0,0.2)];
+}
+
+.soc-card-header {
+  @apply p-2 md:px-4 md:pt-4 md:pb-2;
+}
+
+.soc-card-body {
+  @apply p-2 md:px-4 md:py-2 flex items-center gap-2 md:gap-3 border-t border-b border-gray-100;
+}
+
+.soc-card-footer {
+  @apply px-2 py-2 md:px-4 md:py-3 border-t border-gray-100;
+}

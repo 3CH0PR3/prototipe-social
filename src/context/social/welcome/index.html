@@ -1,0 +1,1134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReCiclos — La red que le da otra vuelta a Colombia</title>
+    <meta
+      name="description"
+      content="ReCiclos conecta vecinos, recicladores de oficio y organizaciones para cerrar el ciclo del reciclaje en las ciudades de Colombia."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: '#182A1C',
+              paper: '#EDE7D8',
+              paper2: '#E2D9C4',
+              moss: '#3F5D3A',
+              mosslight: '#6F8F5F',
+              clay: '#C4622D',
+              clayd: '#9E4A20',
+              gold: '#E3B23C',
+              charcoal: '#2A2620'
+            },
+            fontFamily: {
+              display: ['"Fraunces"', 'serif'],
+              body: ['"Manrope"', 'sans-serif'],
+              mono: ['"Space Mono"', 'monospace']
+            },
+            borderRadius: { '4xl': '2rem' }
+          }
+        }
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #ede7d8;
+      }
+      .font-display {
+        font-family: 'Fraunces', serif;
+      }
+      .font-mono {
+        font-family: 'Space Mono', monospace;
+      }
+
+      /* textura de papel kraft reciclado */
+      .kraft-texture {
+        background-image:
+          radial-gradient(circle at 20% 30%, rgba(24, 42, 28, 0.05) 0, transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(196, 98, 45, 0.06) 0, transparent 45%),
+          repeating-linear-gradient(
+            0deg,
+            rgba(42, 38, 32, 0.015) 0px,
+            rgba(42, 38, 32, 0.015) 1px,
+            transparent 1px,
+            transparent 3px
+          );
+      }
+
+      .stamp-spin {
+        animation: spin 30s linear infinite;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .photo-tint {
+        filter: grayscale(1) contrast(1.05) brightness(0.95);
+      }
+
+      ::selection {
+        background: #c4622d;
+        color: #ede7d8;
+      }
+
+      .marquee-track {
+        animation: marquee 28s linear infinite;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      input:focus-visible,
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid #c4622d;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+
+  <body class="text-charcoal antialiased kraft-texture">
+    <!-- ============ NAV ============ -->
+    <header class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-charcoal/10">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-2.5 shrink-0">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+            <circle cx="17" cy="17" r="16" stroke="#3F5D3A" stroke-width="2" />
+            <path
+              d="M17 6 L21 12 L17 12 L21 18"
+              stroke="#C4622D"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+            <path
+              d="M8 20 L8 14 L12 14 L8 8"
+              stroke="#3F5D3A"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+            <path
+              d="M26 20 L21 20 L21 24 L26 27"
+              stroke="#E3B23C"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+          </svg>
+          <span class="font-display font-semibold text-xl tracking-tight">ReCiclos</span>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 font-medium text-[15px]">
+          <a href="#como-funciona" class="hover:text-moss transition-colors">Cómo funciona</a>
+          <a href="#ciudades" class="hover:text-moss transition-colors">Ciudades</a>
+          <a href="#materiales" class="hover:text-moss transition-colors">Materiales</a>
+          <a href="#comunidad" class="hover:text-moss transition-colors">Comunidad</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-3 shrink-0">
+          <a href="auth.html" class="px-4 py-2.5 text-[15px] font-semibold hover:text-moss transition-colors">
+            Iniciar sesión
+          </a>
+          <a
+            href="auth.html#registro"
+            class="px-5 py-2.5 rounded-full bg-ink text-paper text-[15px] font-semibold hover:bg-clay transition-colors"
+          >
+            Unirme gratis
+          </a>
+        </div>
+
+        <button id="menuBtn" class="lg:hidden p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false">
+          <svg
+            id="iconMenu"
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg
+            id="iconClose"
+            class="hidden"
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- menu movil -->
+      <div id="mobileMenu" class="hidden lg:hidden border-t border-charcoal/10 bg-paper px-5 py-5 space-y-4">
+        <a href="#como-funciona" class="block font-medium">Cómo funciona</a>
+        <a href="#ciudades" class="block font-medium">Ciudades</a>
+        <a href="#materiales" class="block font-medium">Materiales</a>
+        <a href="#comunidad" class="block font-medium">Comunidad</a>
+        <div class="pt-3 flex flex-col gap-3">
+          <a
+            href="auth.html"
+            class="w-full text-center px-5 py-3 rounded-full border-2 border-ink font-semibold"
+          >
+            Iniciar sesión
+          </a>
+          <a
+            href="auth.html#registro"
+            class="w-full text-center px-5 py-3 rounded-full bg-ink text-paper font-semibold"
+          >
+            Unirme gratis
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section
+      id="top"
+      class="relative overflow-hidden max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-24 grid lg:grid-cols-2 gap-14 items-center"
+    >
+      <div>
+        <p class="font-mono text-xs tracking-[0.2em] uppercase text-clay font-bold mb-5">
+          Red de reciclaje colombiana
+        </p>
+        <h1 class="font-display font-medium text-[2.6rem] sm:text-6xl leading-[1.05] tracking-tight text-ink">
+          Lo que hoy es
+          <span class="italic text-clay">basura</span>
+          en tu casa, es un ciclo que
+          <span class="italic">empieza</span>
+          en tu barrio.
+        </h1>
+        <p class="mt-6 text-lg text-charcoal/75 max-w-lg leading-relaxed">
+          ReCiclos conecta a vecinos con recicladores de oficio y organizaciones de tu ciudad, para que cada
+          material recorra su ruta completa: de tu puerta a una nueva vida.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a
+            href="auth.html#registro"
+            class="group px-7 py-4 rounded-full bg-clay text-paper font-semibold text-[15px] flex items-center gap-2 hover:bg-clayd transition-colors shadow-lg shadow-clay/20"
+          >
+            Unirme gratis
+            <svg
+              class="group-hover:translate-x-1 transition-transform"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+          <a
+            href="#como-funciona"
+            class="px-7 py-4 rounded-full border-2 border-ink/80 font-semibold text-[15px] hover:bg-ink hover:text-paper transition-colors"
+          >
+            Ver cómo funciona
+          </a>
+        </div>
+
+        <div class="mt-12 flex flex-wrap gap-x-10 gap-y-4 font-mono">
+          <div>
+            <p class="text-3xl font-bold text-ink">
+              <span data-count="1284" data-suffix=" kg">0 kg</span>
+            </p>
+            <p class="text-xs text-charcoal/60 mt-1">reciclados hoy</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-ink">
+              <span data-count="612">0</span>
+            </p>
+            <p class="text-xs text-charcoal/60 mt-1">recicladores aliados</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-ink">
+              <span data-count="9">0</span>
+            </p>
+            <p class="text-xs text-charcoal/60 mt-1">ciudades activas</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- collage visual -->
+      <div class="relative h-[460px] sm:h-[540px] reveal" data-reveal>
+        <div class="absolute inset-0 rounded-4xl bg-moss/10 rotate-2"></div>
+
+        <div class="absolute top-0 right-0 w-[78%] h-[68%] rounded-4xl overflow-hidden shadow-xl">
+          <div class="relative w-full h-full">
+            <img
+              src="https://picsum.photos/seed/reciclos-barrio/900/700"
+              alt="Vecinos organizando materiales reciclables en un barrio de Colombia"
+              class="absolute inset-0 w-full h-full object-cover photo-tint"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-moss/70 via-moss/40 to-clay/50 mix-blend-multiply"
+            ></div>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-0 left-0 w-[62%] h-[46%] rounded-4xl overflow-hidden shadow-xl border-4 border-paper"
+        >
+          <div class="relative w-full h-full">
+            <img
+              src="https://picsum.photos/seed/reciclos-cooperativa/700/600"
+              alt="Reciclador de oficio clasificando material en su bodega"
+              class="absolute inset-0 w-full h-full object-cover photo-tint"
+            />
+            <div class="absolute inset-0 bg-gradient-to-tr from-ink/70 to-gold/30 mix-blend-multiply"></div>
+          </div>
+        </div>
+
+        <!-- sello / signature element -->
+        <div class="absolute -bottom-4 right-4 w-32 h-32 sm:w-36 sm:h-36 stamp-spin">
+          <svg viewBox="0 0 140 140" class="w-full h-full drop-shadow-lg">
+            <circle cx="70" cy="70" r="66" fill="#EDE7D8" stroke="#3F5D3A" stroke-width="2" />
+            <path id="stampCircle" d="M70,20 A50,50 0 1,1 69.9,20" fill="none" />
+            <text
+              font-family="'Space Mono', monospace"
+              font-size="9.3"
+              letter-spacing="2"
+              fill="#182A1C"
+              font-weight="700"
+            >
+              <textPath href="#stampCircle" startOffset="1%">
+                · CICLO CERRADO · RECICLOS · CICLO CERRADO ·
+              </textPath>
+            </text>
+            <path
+              d="M70 46 L82 58 L70 58 L82 70"
+              stroke="#C4622D"
+              stroke-width="3.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+            <path
+              d="M52 84 L52 72 L64 72 L52 60"
+              stroke="#3F5D3A"
+              stroke-width="3.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+            <path
+              d="M88 94 L76 94 L76 82 L88 94"
+              stroke="#E3B23C"
+              stroke-width="3.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="absolute top-6 -left-2 sm:left-2 bg-paper rounded-2xl shadow-lg px-4 py-3 border border-charcoal/10 max-w-[210px]"
+        >
+          <p class="text-xs font-mono text-moss font-bold">+120 kg hoy</p>
+          <p class="text-sm font-semibold leading-snug mt-0.5">Chapinero, Bogotá 📍</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ciudades ============ -->
+    <div class="border-y border-charcoal/10 bg-ink py-4 overflow-hidden">
+      <div class="flex whitespace-nowrap marquee-track font-mono text-paper/70 text-sm tracking-widest">
+        <span class="mx-6">BOGOTÁ D.C.</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">MEDELLÍN</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">CALI</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">BARRANQUILLA</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">CARTAGENA</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">BUCARAMANGA</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">PEREIRA</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">BOGOTÁ D.C.</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">MEDELLÍN</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">CALI</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">BARRANQUILLA</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">CARTAGENA</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">BUCARAMANGA</span>
+        <span class="mx-6">·</span>
+        <span class="mx-6">PEREIRA</span>
+        <span class="mx-6">·</span>
+      </div>
+    </div>
+
+    <!-- ============ IMPACT STATS ============ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 py-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal" data-reveal>
+        <p class="font-display text-4xl font-semibold text-moss">
+          <span data-count="384">0</span>
+          t
+        </p>
+        <p class="text-sm text-charcoal/60 mt-1">toneladas recicladas este año</p>
+      </div>
+      <div class="reveal" data-reveal style="transition-delay: 0.08s">
+        <p class="font-display text-4xl font-semibold text-clay">
+          <span data-count="211">0</span>
+          t
+        </p>
+        <p class="text-sm text-charcoal/60 mt-1">de CO₂ evitadas</p>
+      </div>
+      <div class="reveal" data-reveal style="transition-delay: 0.16s">
+        <p class="font-display text-4xl font-semibold text-gold">
+          <span data-count="612">0</span>
+        </p>
+        <p class="text-sm text-charcoal/60 mt-1">recicladores de oficio conectados</p>
+      </div>
+      <div class="reveal" data-reveal style="transition-delay: 0.24s">
+        <p class="font-display text-4xl font-semibold text-ink">
+          <span data-count="9">0</span>
+        </p>
+        <p class="text-sm text-charcoal/60 mt-1">ciudades colombianas activas</p>
+      </div>
+    </section>
+
+    <!-- ============ COMO FUNCIONA ============ -->
+    <section id="como-funciona" class="bg-ink text-paper py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-xl reveal" data-reveal>
+          <p class="font-mono text-xs tracking-[0.2em] uppercase text-gold font-bold mb-4">
+            El recorrido de tu material
+          </p>
+          <h2 class="font-display text-4xl sm:text-5xl font-medium leading-tight">
+            Cuatro pasos y el ciclo se cierra
+          </h2>
+        </div>
+
+        <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-paper/10 rounded-3xl overflow-hidden">
+          <div class="bg-ink p-8 reveal" data-reveal>
+            <p class="font-mono text-clay text-sm font-bold mb-6">01</p>
+            <h3 class="font-display text-xl font-medium mb-2">Publica tus materiales</h3>
+            <p class="text-paper/65 text-[15px] leading-relaxed">
+              Toma una foto de lo que quieres reciclar, indica cantidad y ubicación en tu barrio.
+            </p>
+          </div>
+          <div class="bg-ink p-8 reveal" data-reveal style="transition-delay: 0.08s">
+            <p class="font-mono text-clay text-sm font-bold mb-6">02</p>
+            <h3 class="font-display text-xl font-medium mb-2">Conecta con un reciclador</h3>
+            <p class="text-paper/65 text-[15px] leading-relaxed">
+              La red te muestra recicladores de oficio y rutas cercanas que reciben ese material.
+            </p>
+          </div>
+          <div class="bg-ink p-8 reveal" data-reveal style="transition-delay: 0.16s">
+            <p class="font-mono text-clay text-sm font-bold mb-6">03</p>
+            <h3 class="font-display text-xl font-medium mb-2">Agenda la recolección</h3>
+            <p class="text-paper/65 text-[15px] leading-relaxed">
+              Elige día y hora dentro de la app. Te avisamos cuando el reciclador va en camino.
+            </p>
+          </div>
+          <div class="bg-ink p-8 reveal" data-reveal style="transition-delay: 0.24s">
+            <p class="font-mono text-clay text-sm font-bold mb-6">04</p>
+            <h3 class="font-display text-xl font-medium mb-2">Gana EcoPuntos</h3>
+            <p class="text-paper/65 text-[15px] leading-relaxed">
+              Cada entrega suma puntos canjeables por descuentos con negocios aliados de tu ciudad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CIUDADES ============ -->
+    <section id="ciudades" class="max-w-7xl mx-auto px-5 sm:px-8 py-24">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-14">
+        <div class="max-w-lg reveal" data-reveal>
+          <p class="font-mono text-xs tracking-[0.2em] uppercase text-clay font-bold mb-4">
+            Presencia nacional
+          </p>
+          <h2 class="font-display text-4xl sm:text-5xl font-medium leading-tight text-ink">
+            Ya estamos en 9 ciudades
+          </h2>
+        </div>
+        <p class="text-charcoal/70 max-w-sm">
+          Cada ciudad tiene su propia red de recolección: mientras más vecinos se unen, más rutas se abren.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Bogotá -->
+        <div
+          class="reveal rounded-3xl overflow-hidden bg-white/40 border border-charcoal/10 group"
+          data-reveal
+        >
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://picsum.photos/seed/bogota-reciclos/600/400"
+              class="absolute inset-0 w-full h-full object-cover photo-tint group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+            <p class="absolute bottom-3 left-4 font-display text-2xl text-paper font-medium">Bogotá D.C.</p>
+          </div>
+          <div class="p-5 flex justify-between font-mono text-xs text-charcoal/60">
+            <span>184 recicladores</span>
+            <span>96 t / mes</span>
+          </div>
+        </div>
+        <!-- Medellín -->
+        <div
+          class="reveal rounded-3xl overflow-hidden bg-white/40 border border-charcoal/10 group"
+          data-reveal
+          style="transition-delay: 0.06s"
+        >
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://picsum.photos/seed/medellin-reciclos/600/400"
+              class="absolute inset-0 w-full h-full object-cover photo-tint group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+            <p class="absolute bottom-3 left-4 font-display text-2xl text-paper font-medium">Medellín</p>
+          </div>
+          <div class="p-5 flex justify-between font-mono text-xs text-charcoal/60">
+            <span>121 recicladores</span>
+            <span>68 t / mes</span>
+          </div>
+        </div>
+        <!-- Cali -->
+        <div
+          class="reveal rounded-3xl overflow-hidden bg-white/40 border border-charcoal/10 group"
+          data-reveal
+          style="transition-delay: 0.12s"
+        >
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://picsum.photos/seed/cali-reciclos/600/400"
+              class="absolute inset-0 w-full h-full object-cover photo-tint group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+            <p class="absolute bottom-3 left-4 font-display text-2xl text-paper font-medium">Cali</p>
+          </div>
+          <div class="p-5 flex justify-between font-mono text-xs text-charcoal/60">
+            <span>97 recicladores</span>
+            <span>51 t / mes</span>
+          </div>
+        </div>
+        <!-- Barranquilla -->
+        <div
+          class="reveal rounded-3xl overflow-hidden bg-white/40 border border-charcoal/10 group"
+          data-reveal
+        >
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://picsum.photos/seed/barranquilla-reciclos/600/400"
+              class="absolute inset-0 w-full h-full object-cover photo-tint group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+            <p class="absolute bottom-3 left-4 font-display text-2xl text-paper font-medium">Barranquilla</p>
+          </div>
+          <div class="p-5 flex justify-between font-mono text-xs text-charcoal/60">
+            <span>64 recicladores</span>
+            <span>34 t / mes</span>
+          </div>
+        </div>
+        <!-- Cartagena -->
+        <div
+          class="reveal rounded-3xl overflow-hidden bg-white/40 border border-charcoal/10 group"
+          data-reveal
+          style="transition-delay: 0.06s"
+        >
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://picsum.photos/seed/cartagena-reciclos/600/400"
+              class="absolute inset-0 w-full h-full object-cover photo-tint group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+            <p class="absolute bottom-3 left-4 font-display text-2xl text-paper font-medium">Cartagena</p>
+          </div>
+          <div class="p-5 flex justify-between font-mono text-xs text-charcoal/60">
+            <span>42 recicladores</span>
+            <span>22 t / mes</span>
+          </div>
+        </div>
+        <!-- Bucaramanga -->
+        <div
+          class="reveal rounded-3xl overflow-hidden bg-white/40 border border-charcoal/10 group"
+          data-reveal
+          style="transition-delay: 0.12s"
+        >
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src="https://picsum.photos/seed/bucaramanga-reciclos/600/400"
+              class="absolute inset-0 w-full h-full object-cover photo-tint group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+            <p class="absolute bottom-3 left-4 font-display text-2xl text-paper font-medium">Bucaramanga</p>
+          </div>
+          <div class="p-5 flex justify-between font-mono text-xs text-charcoal/60">
+            <span>38 recicladores</span>
+            <span>19 t / mes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MATERIALES ============ -->
+    <section id="materiales" class="bg-paper2/60 py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-xl mb-14 reveal" data-reveal>
+          <p class="font-mono text-xs tracking-[0.2em] uppercase text-clay font-bold mb-4">
+            Qué puedes publicar
+          </p>
+          <h2 class="font-display text-4xl sm:text-5xl font-medium leading-tight text-ink">
+            Materiales que reciben nuestros aliados
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- item template repeated -->
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#3F5D3A"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 4h6l2 3h8v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Papel y cartón</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Cajas, periódico, cuadernos</p>
+          </div>
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+            style="transition-delay: 0.05s"
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#C4622D"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 3h6l1 4H8l1-4Z" />
+              <path d="M8 7h8l1 12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L8 7Z" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Plástico PET / HDPE</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Botellas, envases, tapas</p>
+          </div>
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+            style="transition-delay: 0.1s"
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#E3B23C"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M10 2h4v6l4 10a2 2 0 0 1-2 3H8a2 2 0 0 1-2-3l4-10V2Z" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Vidrio</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Frascos, botellas, envases</p>
+          </div>
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+            style="transition-delay: 0.15s"
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#182A1C"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="9" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Metales</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Latas, chatarra, cobre</p>
+          </div>
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#3F5D3A"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="4" y="3" width="16" height="14" rx="1" />
+              <line x1="9" y1="21" x2="15" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Electrónicos (RAEE)</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Celulares, cables, baterías</p>
+          </div>
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+            style="transition-delay: 0.05s"
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#C4622D"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 3h12l-1 8-5 3-5-3-1-8Z" />
+              <path d="M9 14v7M15 14v7" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Textiles</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Ropa, telas, retazos</p>
+          </div>
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+            style="transition-delay: 0.1s"
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#E3B23C"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 2c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11Z" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Orgánicos</h3>
+            <p class="text-sm text-charcoal/60 mt-1">Restos de cocina para compost</p>
+          </div>
+          <div
+            class="reveal bg-paper rounded-3xl p-6 border border-charcoal/10 hover:border-moss transition-colors"
+            data-reveal
+            style="transition-delay: 0.15s"
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#182A1C"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 3v6M8 9h8l2 12H6L8 9Z" />
+            </svg>
+            <h3 class="font-display text-lg font-medium mt-4">Aceite usado</h3>
+            <p class="text-sm text-charcoal/60 mt-1">De cocina, en envase cerrado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RECONOCIMIENTO RECICLADORES ============ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 py-24 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="relative h-80 sm:h-96 order-2 lg:order-1 reveal" data-reveal>
+        <div class="absolute inset-0 rounded-4xl overflow-hidden shadow-xl">
+          <img
+            src="https://picsum.photos/seed/reciclador-oficio-colombia/800/700"
+            class="absolute inset-0 w-full h-full object-cover photo-tint"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-moss/80 to-clay/20 mix-blend-multiply"></div>
+        </div>
+        <div
+          class="absolute -bottom-6 -right-4 bg-paper rounded-2xl shadow-lg px-5 py-4 border border-charcoal/10"
+        >
+          <p class="font-mono text-xs text-clay font-bold">DESDE 2011</p>
+          <p class="font-display text-lg font-medium mt-0.5">Oficio reconocido por ley en Colombia</p>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2 reveal" data-reveal>
+        <p class="font-mono text-xs tracking-[0.2em] uppercase text-clay font-bold mb-4">
+          Reconocemos el oficio
+        </p>
+        <h2 class="font-display text-4xl sm:text-5xl font-medium leading-tight text-ink">
+          Los recicladores de oficio son el corazón de la cadena
+        </h2>
+        <p class="mt-6 text-charcoal/75 leading-relaxed max-w-lg">
+          Antes de ser una app, el reciclaje en Colombia ya tenía dueños: cooperativas y recicladores de
+          oficio que recorren los barrios desde hace décadas. ReCiclos no los reemplaza — les da una vitrina,
+          rutas más eficientes y un ingreso más estable.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-8 font-mono">
+          <div>
+            <p class="text-2xl font-bold text-moss">612</p>
+            <p class="text-xs text-charcoal/60">perfiles verificados</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-clay">38</p>
+            <p class="text-xs text-charcoal/60">cooperativas aliadas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMUNIDAD / TESTIMONIOS ============ -->
+    <section id="comunidad" class="bg-ink text-paper py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="max-w-xl mb-14 reveal" data-reveal>
+          <p class="font-mono text-xs tracking-[0.2em] uppercase text-gold font-bold mb-4">Voces de la red</p>
+          <h2 class="font-display text-4xl sm:text-5xl font-medium leading-tight">
+            Lo que dice la comunidad
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="reveal bg-paper/5 border border-paper/10 rounded-3xl p-7" data-reveal>
+            <p class="font-display italic text-lg leading-relaxed">
+              "Llevo 14 años reciclando en Bosa. Con ReCiclos la gente ya sabe cuándo paso y separa mejor el
+              material."
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <img
+                src="https://i.pravatar.cc/80?img=51"
+                class="w-11 h-11 rounded-full object-cover grayscale"
+              />
+              <div>
+                <p class="font-semibold text-sm">Rosa Martínez</p>
+                <p class="text-xs text-paper/60 font-mono">Recicladora de oficio · Bogotá</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="reveal bg-paper/5 border border-paper/10 rounded-3xl p-7"
+            data-reveal
+            style="transition-delay: 0.08s"
+          >
+            <p class="font-display italic text-lg leading-relaxed">
+              "Publico el cartón de la tienda dos veces por semana y en minutos ya tengo quién lo recoja. Mis
+              vecinos también se sumaron."
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <img
+                src="https://i.pravatar.cc/80?img=32"
+                class="w-11 h-11 rounded-full object-cover grayscale"
+              />
+              <div>
+                <p class="font-semibold text-sm">Andrés Gómez</p>
+                <p class="text-xs text-paper/60 font-mono">Tienda La Esquina · Medellín</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="reveal bg-paper/5 border border-paper/10 rounded-3xl p-7"
+            data-reveal
+            style="transition-delay: 0.16s"
+          >
+            <p class="font-display italic text-lg leading-relaxed">
+              "Canjeé mis EcoPuntos por un mercado en la tienda zero-waste del barrio. Reciclar por fin se
+              siente en el bolsillo."
+            </p>
+            <div class="mt-6 flex items-center gap-3">
+              <img
+                src="https://i.pravatar.cc/80?img=47"
+                class="w-11 h-11 rounded-full object-cover grayscale"
+              />
+              <div>
+                <p class="font-semibold text-sm">Camila Restrepo</p>
+                <p class="text-xs text-paper/60 font-mono">Vecina · Cali</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="max-w-7xl mx-auto px-5 sm:px-8 py-24">
+      <div
+        class="reveal relative rounded-4xl overflow-hidden bg-moss px-8 sm:px-16 py-16 text-center"
+        data-reveal
+      >
+        <div
+          class="absolute inset-0 opacity-15"
+          style="
+            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+            background-size: 22px 22px;
+          "
+        ></div>
+        <div class="relative">
+          <h2
+            class="font-display text-3xl sm:text-5xl font-medium text-paper leading-tight max-w-2xl mx-auto"
+          >
+            Tu próxima bolsa de reciclaje puede cambiar tu barrio
+          </h2>
+          <p class="mt-5 text-paper/80 max-w-md mx-auto">
+            Únete gratis a ReCiclos y conecta hoy mismo con tu red de reciclaje local.
+          </p>
+          <a
+            href="auth.html#registro"
+            class="mt-9 inline-flex items-center gap-2 px-8 py-4 rounded-full bg-paper text-ink font-semibold hover:bg-gold transition-colors"
+          >
+            Crear mi cuenta
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="border-t border-charcoal/10 bg-paper2/50">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2.5 mb-4">
+            <svg width="30" height="30" viewBox="0 0 34 34" fill="none">
+              <circle cx="17" cy="17" r="16" stroke="#3F5D3A" stroke-width="2" />
+              <path
+                d="M17 6 L21 12 L17 12 L21 18"
+                stroke="#C4622D"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+            </svg>
+            <span class="font-display font-semibold text-lg">ReCiclos</span>
+          </div>
+          <p class="text-sm text-charcoal/60 max-w-xs leading-relaxed">
+            La red social del reciclaje en Colombia. Hecha con y para vecinos, recicladores de oficio y
+            organizaciones.
+          </p>
+          <form id="newsletterForm" class="mt-6 flex max-w-sm">
+            <label for="newsletterEmail" class="sr-only">Correo electrónico</label>
+            <input
+              id="newsletterEmail"
+              type="email"
+              required
+              placeholder="tu@correo.com"
+              class="flex-1 min-w-0 px-4 py-3 rounded-l-full border border-charcoal/15 bg-paper text-sm focus:outline-none"
+            />
+            <button
+              type="submit"
+              class="px-5 rounded-r-full bg-ink text-paper text-sm font-semibold hover:bg-clay transition-colors"
+            >
+              Recibir novedades
+            </button>
+          </form>
+          <p id="newsletterMsg" class="text-xs text-moss font-semibold mt-2 hidden">
+            ¡Gracias! Revisa tu correo para confirmar.
+          </p>
+        </div>
+
+        <div>
+          <p class="font-semibold text-sm mb-4">Plataforma</p>
+          <ul class="space-y-3 text-sm text-charcoal/65">
+            <li>
+              <a href="#como-funciona" class="hover:text-moss">Cómo funciona</a>
+            </li>
+            <li>
+              <a href="#materiales" class="hover:text-moss">Materiales</a>
+            </li>
+            <li>
+              <a href="auth.html" class="hover:text-moss">Iniciar sesión</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-sm mb-4">Ciudades</p>
+          <ul class="space-y-3 text-sm text-charcoal/65">
+            <li>Bogotá D.C.</li>
+            <li>Medellín</li>
+            <li>Cali</li>
+            <li>Barranquilla</li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-semibold text-sm mb-4">Legal</p>
+          <ul class="space-y-3 text-sm text-charcoal/65">
+            <li>
+              <a href="#" class="hover:text-moss">Términos de uso</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-moss">Privacidad</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-moss">Cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="border-t border-charcoal/10 py-6 px-5 sm:px-8 max-w-7xl mx-auto flex flex-wrap gap-3 justify-between text-xs text-charcoal/50 font-mono"
+      >
+        <p>© 2026 ReCiclos. Hecho en Colombia 🇨🇴</p>
+        <p>Ciclo cerrado · Datos de impacto ilustrativos</p>
+      </div>
+    </footer>
+
+    <script>
+      // menu movil
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const iconMenu = document.getElementById('iconMenu');
+      const iconClose = document.getElementById('iconClose');
+      menuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        iconMenu.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', String(!isOpen));
+      });
+      mobileMenu.querySelectorAll('a').forEach((a) =>
+        a.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          iconMenu.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        })
+      );
+
+      // reveal on scroll
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      revealEls.forEach((el) => io.observe(el));
+
+      // contadores animados
+      function animateCount(el) {
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = Math.round(eased * target);
+          el.textContent = value.toLocaleString('es-CO') + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+      const counters = document.querySelectorAll('[data-count]');
+      const countIo = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              countIo.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.4 }
+      );
+      counters.forEach((el) => countIo.observe(el));
+
+      // newsletter fake submit
+      const newsletterForm = document.getElementById('newsletterForm');
+      const newsletterMsg = document.getElementById('newsletterMsg');
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        newsletterMsg.classList.remove('hidden');
+        newsletterForm.reset();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+
+    "checkJs": false,
+    "jsx": "preserve",
+
+    "lib": ["ES2023", "esnext", "DOM", "DOM.iterable", "scripthost"],
+
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    "noImplicitAny": false,
+
+    "outDir": "./dist",
+
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@config/*": ["src/config/*"],
+      "@api/*": ["src/config/api/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@router/*": ["src/router/*"],
+
+      "@globalStores/*": ["src/stores/*"],
+      "@globalServices/*": ["src/services/*"],
+      "@globalHelpers": ["src/shared/helpers/*"],
+      "@globalComponents/*": ["src/shared/components/*"],
+      "@globalComposables/*": ["src/shared/composables/*"],
+
+      "@member/*": ["src/contexts/member/*"],
+      "@social/*": ["src/contexts/social/*"],
+      "@central/*": ["src/contexts/central/*"],
+      "@company/*": ["src/contexts/company/*"],
+      "@landing/*": ["src/contexts/landing/*"],
+      "@error/*": ["src/contexts/error/*"],
+      "@client/*": ["src/contexts/client/*"],
+
+      "@authSocial/*": ["src/contexts/social/auth/*"],
+      "@authMember/*": ["src/contexts/member/auth/*"],
+      "@authCentral/*": ["src/contexts/central/auth/*"],
+      "@authCompany/*": ["src/contexts/company/auth/*"],
+      "@authLanding/*": ["src/contexts/landing/auth/*"],
+      "@authClient/*": ["src/contexts/client/auth/*"],
+
+      "@img/*": ["src/assets/img/*"],
+      "@css/*": ["src/assets/css/*"],
+      "@assets/*": ["src/assets/*"],
+      "@/*": ["src/*"]
+    },
+    "rootDir": "./src"
+  },
+  "exclude": ["certs", "dist", "docs", "node_modules", "patches"],
+  "include": ["src/**/*.js", "src/**/*.vue"]
+}

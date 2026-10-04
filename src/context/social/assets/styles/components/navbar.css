@@ -1,0 +1,103 @@
+/* Navbar and Brand */
+.soc-navbar-brand {
+  @apply flex items-center gap-2 border-0 bg-transparent cursor-pointer;
+}
+
+.soc-navbar-brand-icon {
+  @apply grid place-items-center w-8 h-8 rounded-lg bg-green-600 text-white shrink-0;
+}
+
+.soc-navbar-brand-text {
+  @apply flex flex-col leading-none text-left;
+}
+
+.soc-navbar-brand-text.hidden-mobile {
+  @apply hidden sm:flex;
+}
+
+.soc-navbar-brand-title {
+  @apply text-base font-bold tracking-tight text-gray-900;
+}
+
+.soc-navbar-brand-subtitle {
+  @apply text-green-600 text-[10px] font-bold mt-0.5;
+}
+
+/* Search */
+.soc-navbar-search-container {
+  @apply flex items-center gap-2 relative;
+}
+
+.soc-navbar-search-btn-mobile {
+  @apply w-10 h-10 sm:hidden rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 transition-colors border-0 cursor-pointer;
+}
+
+.soc-navbar-search-trigger {
+  @apply hidden sm:flex items-center bg-gray-100 rounded-full px-4 h-10 gap-2 min-w-[240px] cursor-text hover:bg-gray-200 transition-colors;
+}
+
+.soc-navbar-search-trigger-text {
+  @apply text-[14px] text-gray-500 w-full text-left truncate;
+}
+
+/* Search Mobile Fullscreen */
+.soc-navbar-search-mobile-fullscreen {
+  @apply fixed sm:hidden top-0 left-0 right-0 bottom-0 w-full h-full z-[60] bg-white flex flex-col;
+}
+
+.soc-navbar-search-mobile-header {
+  @apply flex items-center gap-2 p-3 border-b border-gray-200;
+}
+
+.soc-navbar-search-mobile-back {
+  @apply w-10 h-10 rounded-full flex items-center justify-center bg-gray-50 text-gray-500 border-0 cursor-pointer;
+}
+
+.soc-navbar-search-input-wrapper {
+  @apply flex-1 relative flex items-center bg-gray-100 rounded-full px-4 h-10;
+}
+
+.soc-navbar-search-input {
+  @apply w-full bg-transparent border-0 outline-none focus:ring-0 focus:outline-none text-sm text-gray-900;
+}
+
+.soc-navbar-search-clear {
+  @apply absolute right-3 text-gray-400 p-1 bg-transparent border-0 cursor-pointer;
+}
+
+.soc-navbar-search-mobile-results {
+  @apply p-4 flex-1 overflow-y-auto;
+}
+
+.soc-navbar-search-mobile-title {
+  @apply text-xs font-bold text-gray-400 uppercase tracking-wider mb-3;
+}
+
+.soc-navbar-search-item {
+  @apply flex items-center justify-between py-2 border-0 bg-transparent w-full text-left cursor-pointer hover:bg-gray-50 transition-colors;
+}
+
+.soc-navbar-search-item-left {
+  @apply flex items-center gap-3 text-gray-600;
+}
+
+.soc-navbar-search-item-remove {
+  @apply p-2 text-gray-400 border-0 bg-transparent cursor-pointer;
+}
+
+/* Action Badges */
+.soc-navbar-action-btn {
+  @apply relative grid place-items-center w-10 h-10 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors border-0 cursor-pointer;
+}
+
+.soc-navbar-badge {
+  @apply absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full text-white text-[10px] font-bold flex items-center justify-center border-2 border-white;
+}
+
+.soc-navbar-avatar-btn {
+  @apply w-10 h-10 rounded-full bg-gray-200 overflow-hidden cursor-pointer border border-gray-200 shrink-0 ml-1 hover:ring-2 hover:ring-green-500 transition-all p-0;
+}
+
+.soc-navbar-avatar-img {
+  @apply w-full h-full object-cover;
+}
